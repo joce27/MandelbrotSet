@@ -17,7 +17,7 @@ int main()
 
 	Text output;
 	output.setFont(font);
-	output.setCharacterSize(24);
+	output.setCharacterSize(14);
 	output.setFillColor(Color::White);
 
 	Text& text = output;
