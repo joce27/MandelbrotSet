@@ -32,27 +32,27 @@ int main()
 			}
 			if (event.type == Event::MouseButtonPressed)
 			{
-				Vector2i mouseLocation;
+				Vector2i mousePixel;
 				if (event.mouseButton.button == Mouse::Left)
 				{
-					mouseLocation.x = event.mouseButton.x;
-					mouseLocation.y = event.mouseButton.y;
+					mousePixel.x = event.mouseButton.x;
+					mousePixel.y = event.mouseButton.y;
 					complexPlane.zoomIn();
-					complexPlane.setCenter(mouseLocation);
+					complexPlane.setCenter(mousePixel);
 				}
 				if (event.mouseButton.button == Mouse::Right)
 				{
-					mouseLocation.x = event.mouseButton.x;
-					mouseLocation.y = event.mouseButton.y;
+					mousePixel.x = event.mouseButton.x;
+					mousePixel.y = event.mouseButton.y;
 					complexPlane.zoomOut();
-					complexPlane.setCenter(mouseLocation);
+					complexPlane.setCenter(mousePixel);
 				}
 			}
 			if (event.type == Event::MouseMoved)
 			{
-				mouseLocation.x = mouseMove.x;
-				mouseLocation.y = mouseMove.y;
-				complexPlane.setMouseLocation(mouseLocation);
+				mousePixel.x = mouseMove.x;
+				mousePixel.y = mouseMove.y;
+				complexPlane.setMouseLocation(mousePixel);
 			}
 		}
 	}
