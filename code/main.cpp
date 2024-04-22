@@ -9,7 +9,7 @@ int main()
 	RenderWindow window(vm, "Mandelbrot Set", Style::Default);
 
 	// Construct the ComplexPlane
-	ComplexPlane complexPlane(1, 1);
+	ComplexPlane complexPlane(VideoMode::getDesktopMode().width / 2, VideoMode::getDesktopMode().height / 2);
 
 	// Construct the Font and Text objects
 	Font font;
