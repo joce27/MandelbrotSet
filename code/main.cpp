@@ -20,7 +20,7 @@ int main()
 	output.setCharacterSize(24);
 	output.setFillColor(Color::White);
 
-	while (window.isOPen())
+	while (window.isOpen())
 	{
 		// Handle user input
 		Event event;
@@ -32,20 +32,27 @@ int main()
 			}
 			if (event.type == Event::MouseButtonPressed)
 			{
+				Vector2i mouseLocation;
 				if (event.mouseButton.button == Mouse::Left)
 				{
+					mouseLocation.x = event.mouseButton.x;
+					mouseLocation.y = event.mouseButton.y;
 					complexPlane.zoomIn();
-					complexPlane.setCenter(event.mouseButton);
+					complexPlane.setCenter(mouseLocation);
 				}
 				if (event.mouseButton.button == Mouse::Right)
 				{
+					mouseLocation.x = event.mouseButton.x;
+					mouseLocation.y = event.mouseButton.y;
 					complexPlane.zoomOut();
-					complexPlane.setCenter(event.mouseButton);
+					complexPlane.setCenter(mouseLocation);
 				}
 			}
 			if (event.type == Event::MouseMoved)
 			{
-				complexPlane.setMouseLocation(event.mouseMove);
+				mouseLocation.x = mouseMove.x;
+				mouseLocation.y = mouseMove.y;
+				complexPlane.setMouseLocation(mouseLocation);
 			}
 		}
 	}
