@@ -15,10 +15,15 @@ int main()
 	Font font;
 	font.loadFromFile("Courier.ttf");
 
-	Text& output;
+	Text output;
 	output.setFont(font);
 	output.setCharacterSize(24);
 	output.setFillColor(Color::White);
+
+	Text& text = output;
+
+	// Declare a coordinate for mouse pixel
+	Vector2i mousePixel;
 
 	while (window.isOpen())
 	{
@@ -32,7 +37,6 @@ int main()
 			}
 			if (event.type == Event::MouseButtonPressed)
 			{
-				Vector2i mousePixel;
 				if (event.mouseButton.button == Mouse::Left)
 				{
 					mousePixel.x = event.mouseButton.x;
@@ -50,8 +54,8 @@ int main()
 			}
 			if (event.type == Event::MouseMoved)
 			{
-				mousePixel.x = mouseMove.x;
-				mousePixel.y = mouseMove.y;
+				mousePixel.x = event.mouseMove.x;
+				mousePixel.y = event.mouseMove.y;
 				complexPlane.setMouseLocation(mousePixel);
 			}
 		}
@@ -63,7 +67,7 @@ int main()
 
 	// Update scene
 	complexPlane.updateRender();
-	complexPlane.loadText(output);
+	complexPlane.loadText(text);
 
 	// Draw scene
 	window.clear();
