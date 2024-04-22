@@ -59,19 +59,19 @@ int main()
 				complexPlane.setMouseLocation(mousePixel);
 			}
 		}
-	}
-	if (Keyboard::isKeyPressed(Keyboard::Escape))
-	{
-		window.close();
-	}
+		if (Keyboard::isKeyPressed(Keyboard::Escape))
+		{
+			window.close();
+		}
 
-	// Update scene
-	complexPlane.updateRender();
-	complexPlane.loadText(text);
+		// Update scene
+		complexPlane.updateRender();
+		complexPlane.loadText(text);
 
-	// Draw scene
-	window.clear();
-	window.draw(complexPlane);
-	window.draw(output);
-	window.display();
+		// Draw scene
+		window.clear();
+		window.draw(complexPlane);
+		window.draw(output);
+		window.display();
+	}
 }
